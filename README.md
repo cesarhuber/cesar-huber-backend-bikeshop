@@ -6,7 +6,7 @@ Documentação da API: https://documenter.getpostman.com/view/18385621/UVsEUoqQ
 
 <br>
 
-Deploy Heroku: 
+Deploy Heroku: https://netpark-hubees-teste-backend.herokuapp.com
 
 <br>
 <hr>
