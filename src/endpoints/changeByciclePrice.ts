@@ -20,7 +20,9 @@ export const changeByciclePrice = async (req: Request, res: Response): Promise<v
       throw new Error('ID da bicicleta não encontrado')
     }
 
-    if (bike.getByciclePrice() === price) {
+    const currentPrice = bike.getByciclePrice()
+
+    if (currentPrice === price) {
       errorCode = 422
       throw new Error(`O preço desta bicicleta já está em ${price.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}`)
     }

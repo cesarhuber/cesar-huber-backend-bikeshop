@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { generateId } from "../services/generateId";
 import { BikeSold } from "../types/BycicleSold";
 import { insertBycicleSold } from "../data/insertBycicleSold";
+import { getBycicleById } from "../data/getBycicleById";
 
 export const sellBycicle = async (req: Request, res: Response): Promise<void> => {
   let errorCode = 400
@@ -11,6 +12,13 @@ export const sellBycicle = async (req: Request, res: Response): Promise<void> =>
     if (!bikeId) {
       errorCode = 422
       throw new Error('É necessário informar o ID da bicicleta vendida')
+    }
+
+    const bikeIdExists = await getBycicleById(bikeId)
+
+    if (!bikeIdExists) {
+      errorCode = 404
+      throw new Error('ID não encontrado') 
     }
 
     const id = generateId()
