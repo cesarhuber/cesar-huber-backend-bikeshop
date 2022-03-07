@@ -10,5 +10,11 @@ export const createTables = async () => {
       model varchar(255) not null,
       price float not null
     );
+
+    CREATE TABLE IF NOT EXISTS Z_NPH_Bycicles_Sold (
+      id varchar(36) primary key,
+      bike_id varchar(36) not null,
+      foreign key (bike_id) references to ZNPH_Bycicles(id)
+    )
   `)
 }

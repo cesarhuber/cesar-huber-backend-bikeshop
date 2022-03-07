@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { generateId } from "../services/generateId";
-import { insertBycicle } from "../services/insertBycicle";
+import { insertBycicle } from "../data/insertBycicle";
 import { Bycicle } from "../types/Bycicle";
 
 export const addBycicle = async (req: Request, res: Response): Promise<void> => {
